@@ -6,13 +6,23 @@ public class CellPhoneApplication {
         // Define fields
         public String serialNumber, model, carrier, phoneNumber, owner;
 
-        // Class definition - parameterless w/ default values
+        // OVERLOADED CLASS DEFINITIONS
+        // Class definition #1 - parameterless w/ default values
         public CellPhone() {
             this.serialNumber = "0";
             this.model = "";
             this.carrier = "";
             this.phoneNumber = "";
             this.owner = "";
+        }
+
+        // Class definition #2 - w/ parameters
+        public CellPhone (String serialNumber, String model, String carrier, String phoneNumber, String owner) {
+            this.serialNumber = serialNumber;
+            this.model = model;
+            this.carrier = carrier;
+            this.phoneNumber = phoneNumber;
+            this.owner = owner;
         }
 
         // serialNumber get/set methods
@@ -60,9 +70,13 @@ public class CellPhoneApplication {
             this.owner = owner;
         }
 
-        // Expansion Methods
+        // dial() method - overloaded / 2 inputs
         public void dial(String phoneNumber) {
             System.out.println(this.owner + "'s phone is calling " + phoneNumber);
+        }
+
+        public void dial(CellPhone phone_info) {
+            System.out.println(this.owner + "'s phone is calling " + phone_info.phoneNumber);
         }
     }
 
@@ -72,7 +86,7 @@ public class CellPhoneApplication {
 
         // Init new cellPhone account
         CellPhone account_one = new CellPhone();
-        CellPhone account_two = new CellPhone();
+        CellPhone account_two = new CellPhone("123789", "Galaxy A21", "VZ", "444-444-4444", "JeniDub");
 
         // Init new StringBuilder to display account info at end
         StringBuilder account_info = new StringBuilder();
@@ -100,5 +114,15 @@ public class CellPhoneApplication {
 
         System.out.println(account_info.toString());
         account_one.dial (account_one.getPhoneNumber());
+
+        // Print out account two information
+        account_info.setLength(0);
+        account_info.insert(0, "\n\nAccount Owner Name: " + account_two.owner);
+        account_info.append("\nSerial Number: " + account_two.serialNumber);
+        account_info.append("\nPhone Model: " + account_two.model);
+        account_info.append("\nCarrier: " + account_two.carrier);
+        account_info.append("\nPhone Number: " + account_two.phoneNumber);
+        System.out.println(account_info.toString());
+        account_two.dial (account_one);
     }
 }
