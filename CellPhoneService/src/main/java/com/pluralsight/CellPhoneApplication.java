@@ -15,6 +15,7 @@ public class CellPhoneApplication {
             this.owner = "";
         }
 
+        // serialNumber get/set methods
         public String getSerialNumber() {
             return this.serialNumber;
         }
@@ -23,6 +24,7 @@ public class CellPhoneApplication {
             this.serialNumber = serialNumber;
         }
 
+        // model get/set methods
         public String getModel() {
             return this.model;
         }
@@ -31,6 +33,7 @@ public class CellPhoneApplication {
             this.model = model;
         }
 
+        // carrier get/set methods
         public String getCarrier() {
             return this.carrier;
         }
@@ -39,6 +42,7 @@ public class CellPhoneApplication {
             this.carrier = carrier;
         }
 
+        // phoneNumber get/set methods
         public String getPhoneNumber() {
             return this.phoneNumber;
         }
@@ -47,12 +51,18 @@ public class CellPhoneApplication {
             this.phoneNumber = phoneNumber;
         }
 
+        // owner get/set methods
         public String getOwner() {
             return this.owner;
         }
 
         public void setOwner(String owner) {
             this.owner = owner;
+        }
+
+        // Expansion Methods
+        public void dial(String phoneNumber) {
+            System.out.println(this.owner + "'s phone is calling " + phoneNumber);
         }
     }
 
@@ -62,6 +72,7 @@ public class CellPhoneApplication {
 
         // Init new cellPhone account
         CellPhone account_one = new CellPhone();
+        CellPhone account_two = new CellPhone();
 
         // Init new StringBuilder to display account info at end
         StringBuilder account_info = new StringBuilder();
@@ -88,5 +99,6 @@ public class CellPhoneApplication {
         account_info.insert(0, "\nAccount Owner Name: " + account_one.owner);
 
         System.out.println(account_info.toString());
+        account_one.dial (account_one.getPhoneNumber());
     }
 }
