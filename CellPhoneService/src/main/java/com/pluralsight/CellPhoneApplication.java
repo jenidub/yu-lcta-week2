@@ -61,24 +61,32 @@ public class CellPhoneApplication {
         Scanner user_input = new Scanner(System.in);
 
         // Init new cellPhone account
-         CellPhone account_one = new CellPhone();
+        CellPhone account_one = new CellPhone();
+
+        // Init new StringBuilder to display account info at end
+        StringBuilder account_info = new StringBuilder();
 
         // Prompt user for the required info
         System.out.println("What is the serial number of your cell phone?   ");
         account_one.serialNumber = user_input.nextLine();
+        account_info.append("\nSerial Number: " + account_one.serialNumber);
 
         System.out.println("What is the model of the phone?   ");
         account_one.model = user_input.nextLine();
+        account_info.append("\nPhone Model: " + account_one.model);
 
         System.out.println("Who is the phone carrier?   ");
         account_one.carrier = user_input.nextLine();
+        account_info.append("\nCarrier: " + account_one.carrier);
 
         System.out.println("What is the phone number [###-###-####] ?   ");
         account_one.phoneNumber = user_input.nextLine();
+        account_info.append("\nPhone Number: " + account_one.phoneNumber);
 
         System.out.println("Who is the owner of the phone?   ");
         account_one.owner = user_input.nextLine();
+        account_info.insert(0, "\nAccount Owner Name: " + account_one.owner);
 
-        System.out.println(account_one.toString());
+        System.out.println(account_info.toString());
     }
 }
